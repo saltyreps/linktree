@@ -24,7 +24,7 @@
         }
         
         html {
-            scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en los links */
+            scroll-behavior: smooth;
         }
         
         body {
@@ -33,11 +33,11 @@
             color: #000;
         }
         
-        /* Header naranja actualizado con Flexbox */
+        /* Header actualizado */
         .header {
             background: linear-gradient(90deg, #ef4317 0%, #fdd75a 100%);
             padding: 15px 60px;
-            display: flex; /* Para alinear Logo a la izq y Menú a la derecha */
+            display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
@@ -57,7 +57,6 @@
             animation: neonGlow 2s ease-in-out infinite alternate;
         }
 
-        /* Nueva Navegación Derecha */
         .header-nav {
             display: flex;
             align-items: center;
@@ -77,10 +76,12 @@
             opacity: 0.8;
         }
 
-        /* Estilos del Dropdown de Idiomas */
+        /* --- Estilos Dropdown Idiomas Corregidos --- */
         .lang-dropdown {
             position: relative;
             display: inline-block;
+            padding-bottom: 10px; /* Puente invisible para que no se cierre al bajar el mouse */
+            margin-bottom: -10px; /* Compensa el padding */
         }
 
         .lang-btn {
@@ -96,6 +97,8 @@
             align-items: center;
             gap: 6px;
             transition: background 0.3s ease;
+            min-width: 110px; /* Ancho fijo para evitar saltos al cambiar texto */
+            justify-content: center;
         }
 
         .lang-btn:hover {
@@ -106,48 +109,46 @@
             display: none;
             position: absolute;
             right: 0;
-            top: 100%;
+            top: 100%; /* Justo debajo */
             background-color: white;
             min-width: 140px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             border-radius: 12px;
             z-index: 1000;
             overflow: hidden;
-            margin-top: 10px;
+            /* Eliminado margin-top que causaba el problema */
         }
 
-        .lang-content a {
+        .lang-content button {
             color: #333;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
             font-size: 0.9em;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            cursor: pointer;
             transition: background 0.2s;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .lang-content a:hover {
+        .lang-content button:hover {
             background-color: #f5f5f5;
             color: #ef4317;
         }
 
-        /* Mostrar menú al pasar el ratón */
         .lang-dropdown:hover .lang-content {
             display: block;
         }
         
         @keyframes neonGlow {
             from {
-                text-shadow: 
-                    0 0 10px rgba(255, 255, 255, 0.8),
-                    0 0 20px rgba(255, 255, 255, 0.6),
-                    0 0 30px rgba(255, 255, 255, 0.4);
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
             }
             to {
-                text-shadow: 
-                    0 0 20px rgba(255, 255, 255, 1),
-                    0 0 30px rgba(255, 255, 255, 0.8),
-                    0 0 40px rgba(255, 255, 255, 0.6),
-                    0 0 50px rgba(255, 255, 255, 0.4);
+                text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
             }
         }
         
@@ -192,7 +193,7 @@
             font-weight: bold;
         }
         
-        /* Cards como Enlaces */
+        /* Cards */
         .card-base {
             border-radius: 25px;
             padding: 3px; 
@@ -236,7 +237,7 @@
             width: fit-content;
         }
         
-        /* Banner de video */
+        /* Video */
         .video-banner {
             width: 100%;
             max-width: 1920px;
@@ -301,7 +302,6 @@
             color: #ef4317;
         }
         
-        /* Footer */
         footer {
             background: #333;
             color: white;
@@ -313,7 +313,6 @@
             margin: 10px 0;
         }
         
-        /* Responsive */
         @media (max-width: 1024px) {
             .hero-section {
                 grid-template-columns: 1fr;
@@ -323,48 +322,21 @@
                 min-height: auto;
                 align-items: center;
             }
-            
-            .hero-text h1 {
-                font-size: 2.5em;
-                text-align: center;
-            }
-            
-            .hero-text p {
-                text-align: center;
-            }
-            
-            .header {
-                padding: 15px 30px;
-            }
-            
-            .seo-content {
-                padding: 40px;
-            }
-
-            .card-base {
-                min-height: 300px; 
-            }
+            .hero-text h1, .hero-text p { text-align: center; }
+            .header { padding: 15px 30px; }
+            .seo-content { padding: 40px; }
+            .card-base { min-height: 300px; }
         }
         
-        @media (max-width: 850px) {
-            /* Ajuste para que el menú no rompa en pantallas medianas */
+        @media (max-width: 900px) {
             .header {
                 flex-direction: column;
                 gap: 20px;
                 padding-bottom: 25px;
             }
-            
             .header-nav {
                 flex-wrap: wrap;
                 justify-content: center;
-            }
-
-            .logo {
-                font-size: 2em;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.2em;
             }
         }
     </style>
@@ -373,20 +345,20 @@
     <header class="header">
         <div class="logo">Oopbuy</div>
         <nav class="header-nav">
-            <a href="#que-es" class="nav-link">¿Qué es Oopbuy?</a>
-            <a href="#faq" class="nav-link">Preguntas frecuentes</a>
+            <a href="#que-es" class="nav-link" data-translate="nav_what_is">¿Qué es Oopbuy?</a>
+            <a href="#faq" class="nav-link" data-translate="nav_faq">Preguntas frecuentes</a>
             
             <div class="lang-dropdown">
-                <button class="lang-btn">
-                    🌐 Idioma
+                <button class="lang-btn" id="lang-display">
+                    🌐 Español
                 </button>
                 <div class="lang-content">
-                    <a href="#">Español</a>
-                    <a href="#">English</a>
-                    <a href="#">Italiano</a>
-                    <a href="#">Deutsch</a>
-                    <a href="#">Português</a>
-                    <a href="#">Polski</a>
+                    <button onclick="changeLanguage('es')">Español</button>
+                    <button onclick="changeLanguage('en')">English</button>
+                    <button onclick="changeLanguage('it')">Italiano</button>
+                    <button onclick="changeLanguage('de')">Deutsch</button>
+                    <button onclick="changeLanguage('pt')">Português</button>
+                    <button onclick="changeLanguage('pl')">Polski</button>
                 </div>
             </div>
         </nav>
@@ -394,12 +366,13 @@
     
     <section class="hero-section">
         <div class="hero-text">
-            <h1>Encuentra todo lo que necesitas</h1>
-            <p>
+            <h1 data-translate="hero_title">Encuentra todo lo que necesitas</h1>
+            <p data-translate="hero_desc1">
                 Oopbuy es un agente chino en el que puedes comprar miles de productos: ropa, zapatillas, reps, accesorios, tecnología...
             </p>
             <p>
-                Aquí encontrarás todo lo necesario para <span class="highlight">aprender a comprar</span>
+                <span data-translate="hero_desc2">Aquí encontrarás todo lo necesario para</span> 
+                <span class="highlight" data-translate="hero_highlight">aprender a comprar</span>
             </p>
             
             <div class="video-banner">
@@ -410,131 +383,378 @@
         </div>
         
         <div class="hero-right-column">
-            <a href="https://oopbuy.com/register?inviteCode=CPE081W7R" 
-               class="card-base discount-card" 
-               target="_blank" 
-               rel="nofollow noopener">
-                <div class="badge">
+            <a href="https://oopbuy.com/register?inviteCode=CPE081W7R" class="card-base discount-card" target="_blank" rel="nofollow noopener">
+                <div class="badge" data-translate="time_limited">
                     ⏰ TIEMPO LIMITADO
                 </div>
             </a>
 
-            <a href="https://docs.google.com/spreadsheets/d/1AzcvKVptzoWYFR5xeIM90Z2GyiL9lsCSy8bWWyYW7Cc/edit?usp=sharing" 
-               class="card-base spreadsheet-card" 
-               target="_blank" 
-               rel="noopener">
+            <a href="https://docs.google.com/spreadsheets/d/1AzcvKVptzoWYFR5xeIM90Z2GyiL9lsCSy8bWWyYW7Cc/edit?usp=sharing" class="card-base spreadsheet-card" target="_blank" rel="noopener">
             </a>
         </div>
     </section>
     
     <section class="seo-content">
         <article>
-            <h2 id="que-es">¿Qué es Oopbuy?</h2>
-            <p>
+            <h2 id="que-es" data-translate="seo_title1">¿Qué es Oopbuy?</h2>
+            <p data-translate="seo_p1">
                 Oopbuy es un agente chino líder que te permite comprar productos directamente desde China con total seguridad y comodidad. Especializado en <strong>ropa</strong>, <strong>zapatillas</strong>, <strong>réplicas</strong> y productos de marca, Oopbuy se ha convertido en la opción preferida de miles de compradores en todo el mundo.
             </p>
             
-            <h3>Oopbuy Ropa - Las Mejores Réplicas</h3>
-            <p>
+            <h3 data-translate="seo_h3_1">Oopbuy Ropa - Las Mejores Réplicas</h3>
+            <p data-translate="seo_p_clothing">
                 En <strong>Oopbuy ropa</strong> encontrarás las mejores réplicas del mercado. Desde camisetas de Supreme hasta sudaderas de Balenciaga, pasando por piezas exclusivas de Off-White y Gucci. Nuestro catálogo se actualiza constantemente con las últimas colecciones y tendencias. La calidad de la ropa disponible en Oopbuy es excepcional, con réplicas 1:1 que son prácticamente indistinguibles de las originales.
             </p>
             
-            <h3>Oopbuy Zapatillas - Sneakers de Calidad</h3>
-            <p>
+            <h3 data-translate="seo_h3_2">Oopbuy Zapatillas - Sneakers de Calidad</h3>
+            <p data-translate="seo_p_sneakers">
                 Las zapatillas son uno de nuestros productos estrella. En <strong>Oopbuy zapatillas</strong> podrás encontrar réplicas de alta calidad de Jordan, Yeezy, Nike Dunk, Air Force 1 y muchas más. Todas verificadas y con QC (Quality Control) disponible antes del envío. Trabajamos con los mejores sellers del mercado chino para garantizar que cada par de zapatillas cumpla con los más altos estándares de calidad.
             </p>
             
-            <h3>Oopbuy Spreadsheet - Tu Catálogo Completo</h3>
-            <p>
-                Nuestro <strong>Oopbuy spreadsheet</strong> es una herramienta esencial para todos nuestros clientes. En este documento encontrarás miles de productos organizados por categorías, con enlaces directos a Weidian, Taobao y 1688, precios actualizados y referencias de vendedores verificados. El spreadsheet incluye secciones dedicadas a ropa, zapatillas, accesorios, tecnología y mucho más. Se actualiza regularmente para garantizar que siempre tengas acceso a los mejores productos y precios del mercado.
+            <h3 data-translate="seo_h3_3">Oopbuy Spreadsheet - Tu Catálogo Completo</h3>
+            <p data-translate="seo_p_spreadsheet">
+                Nuestro <strong>Oopbuy spreadsheet</strong> es una herramienta esencial para todos nuestros clientes. En este documento encontrarás miles de productos organizados por categorías, con enlaces directos a Weidian, Taobao y 1688, precios actualizados y referencias de vendedores verificados. El spreadsheet incluye secciones dedicadas a ropa, zapatillas, accesorios, tecnología y mucho más.
             </p>
             
-            <h3>Oopbuy Productos - Amplio Catálogo</h3>
-            <p>
-                Más allá de ropa y zapatillas, <strong>Oopbuy productos</strong> incluye una increíble variedad de artículos. Encuentra réplicas de bolsos de lujo de marcas como Louis Vuitton, Hermès y Chanel. Descubre tecnología como AirPods, smartwatches y accesorios para móviles. Explora joyería, gafas de sol, cinturones, gorras y todo tipo de accesorios de moda. Todo disponible a precios inmejorables directamente desde China.
+            <h3 data-translate="seo_h3_4">Oopbuy Productos - Amplio Catálogo</h3>
+            <p data-translate="seo_p_products">
+                Más allá de ropa y zapatillas, <strong>Oopbuy productos</strong> incluye una increíble variedad de artículos. Encuentra réplicas de bolsos de lujo, tecnología como AirPods, smartwatches y accesorios para móviles. Explora joyería, gafas de sol, cinturones, gorras y todo tipo de accesorios de moda.
             </p>
             
-            <h3>¿Por qué elegir Oopbuy como tu agente chino?</h3>
+            <h3 data-translate="seo_h3_5">¿Por qué elegir Oopbuy como tu agente chino?</h3>
             <ul>
-                <li><strong>Precios competitivos:</strong> Compra directamente desde China al mejor precio del mercado sin intermediarios innecesarios</li>
-                <li><strong>Calidad garantizada:</strong> Todos los productos pasan por un riguroso control de calidad antes del envío internacional</li>
-                <li><strong>Envíos internacionales:</strong> Enviamos a cualquier parte del mundo con diferentes opciones de envío según tus necesidades</li>
-                <li><strong>Atención al cliente:</strong> Soporte en español disponible y comunidad activa en Telegram para resolver todas tus dudas</li>
-                <li><strong>Spreadsheet actualizado:</strong> Acceso a miles de productos verificados con enlaces directos y precios actualizados</li>
-                <li><strong>Transparencia total:</strong> Fotos QC de tus productos antes del envío para que apruebes la calidad</li>
-                <li><strong>Servicio de almacenamiento:</strong> Guarda tus productos hasta que estés listo para enviar todo junto</li>
-                <li><strong>Múltiples métodos de pago:</strong> Acepta diferentes formas de pago para tu comodidad</li>
+                <li data-translate="li_1"><strong>Precios competitivos:</strong> Compra directamente desde China al mejor precio del mercado.</li>
+                <li data-translate="li_2"><strong>Calidad garantizada:</strong> Todos los productos pasan por un riguroso control de calidad (QC).</li>
+                <li data-translate="li_3"><strong>Envíos internacionales:</strong> Enviamos a cualquier parte del mundo con diferentes opciones.</li>
+                <li data-translate="li_4"><strong>Atención al cliente:</strong> Soporte en español y comunidad activa en Telegram.</li>
             </ul>
             
-            <h3>Categorías de productos en Oopbuy</h3>
-            <p>
-                En Oopbuy encontrarás una amplia gama de categorías de productos para satisfacer todas tus necesidades de compra desde China:
-            </p>
+            <h3 data-translate="seo_h3_6">Categorías de productos en Oopbuy</h3>
+            <p data-translate="seo_cat_intro">En Oopbuy encontrarás una amplia gama de categorías:</p>
             <ul>
-                <li><strong>Ropa de marca:</strong> Supreme, Off-White, Balenciaga, Gucci, Essentials, Stone Island, Trapstar y muchas más</li>
-                <li><strong>Zapatillas:</strong> Jordan 1, Jordan 4, Yeezy 350, Yeezy Slides, Nike Dunk, Air Force 1, New Balance</li>
-                <li><strong>Bolsos y carteras:</strong> Louis Vuitton, Hermès, Gucci, Prada, Dior</li>
-                <li><strong>Tecnología:</strong> AirPods Pro, Apple Watch, auriculares, cargadores, fundas premium</li>
-                <li><strong>Accesorios:</strong> Cinturones, gorras, calcetines, bufandas, guantes</li>
-                <li><strong>Joyería:</strong> Cadenas, pulseras, anillos, relojes de marca</li>
-                <li><strong>Gafas:</strong> Gafas de sol de Ray-Ban, Oakley, Cartier y más</li>
+                <li data-translate="li_cat_1"><strong>Ropa de marca:</strong> Supreme, Off-White, Balenciaga, Gucci, Essentials, Trapstar.</li>
+                <li data-translate="li_cat_2"><strong>Zapatillas:</strong> Jordan 1, Jordan 4, Yeezy 350, Nike Dunk, Air Force 1.</li>
+                <li data-translate="li_cat_3"><strong>Accesorios:</strong> Bolsos, carteras, cinturones, joyería y tecnología.</li>
             </ul>
             
-            <h3>Cómo Comprar en Oopbuy - Tutorial Paso a Paso</h3>
-            <p id="tutorial">
-                Comprar en Oopbuy es muy sencillo y seguro. Aquí te explicamos el proceso completo:
-            </p>
+            <h3 data-translate="seo_h3_7">Cómo Comprar en Oopbuy - Tutorial Paso a Paso</h3>
+            <p id="tutorial" data-translate="tutorial_intro">Comprar en Oopbuy es muy sencillo y seguro:</p>
             <ul>
-                <li><strong>Paso 1 - Registro:</strong> Regístrate en Oopbuy usando nuestro código de invitación para obtener tu descuento del 15% más 40 cupones exclusivos</li>
-                <li><strong>Paso 2 - Explora el Spreadsheet:</strong> Consulta nuestro spreadsheet de Oopbuy para encontrar los productos que te interesan. Encontrarás miles de opciones organizadas por categoría</li>
-                <li><strong>Paso 3 - Copia los enlaces:</strong> Copia los enlaces de Weidian, Taobao o 1688 de los productos que quieres comprar</li>
-                <li><strong>Paso 4 - Crea tu pedido:</strong> En la plataforma de Oopbuy, pega los enlaces y selecciona talla, color y cantidad</li>
-                <li><strong>Paso 5 - Pago:</strong> Realiza el pago del producto más las tarifas de servicio de Oopbuy</li>
-                <li><strong>Paso 6 - QC Photos:</strong> Oopbuy comprará el producto y te enviará fotos de calidad para que apruebes</li>
-                <li><strong>Paso 7 - Envío internacional:</strong> Una vez apruebes, elige tu método de envío y Oopbuy enviará todo a tu dirección</li>
+                <li data-translate="step_1"><strong>Paso 1:</strong> Regístrate en Oopbuy con nuestro código para obtener cupones.</li>
+                <li data-translate="step_2"><strong>Paso 2:</strong> Explora el Spreadsheet de Oopbuy para encontrar productos.</li>
+                <li data-translate="step_3"><strong>Paso 3:</strong> Copia los enlaces de Weidian/Taobao/1688 a Oopbuy.</li>
+                <li data-translate="step_4"><strong>Paso 4:</strong> Realiza el pedido y espera las fotos de QC.</li>
             </ul>
             
-            <h3>Ventajas de usar el Spreadsheet de Oopbuy</h3>
-            <p>
-                El <strong>Oopbuy spreadsheet</strong> es una de las herramientas más valiosas para cualquier comprador. Contiene enlaces verificados a productos de calidad, información sobre los mejores sellers, comparativas de precios entre diferentes vendedores, recomendaciones de sizing para cada marca, y se actualiza constantemente con nuevos productos y tendencias. Es completamente gratuito y accesible para todos los usuarios de Oopbuy.
+            <h2 id="faq" data-translate="faq_title">Preguntas Frecuentes sobre Oopbuy</h2>
+            
+            <h3 data-translate="faq_q1">¿Es seguro comprar en Oopbuy?</h3>
+            <p data-translate="faq_a1">
+                Sí, Oopbuy es uno de los agentes chinos más confiables, con miles de usuarios satisfechos, protección al comprador y servicio de fotos QC antes del envío.
             </p>
             
-            <h3>Comunidad y Soporte en Telegram</h3>
-            <p>
-                Únete a nuestra activa comunidad en Telegram donde encontrarás otros compradores compartiendo sus experiencias, reviews de productos, recomendaciones de sellers, guías de compra actualizadas, ofertas exclusivas y soporte directo del equipo de Oopbuy. Es el lugar perfecto para resolver todas tus dudas sobre compras desde China.
+            <h3 data-translate="faq_q2">¿Cuánto tarda el envío desde Oopbuy?</h3>
+            <p data-translate="faq_a2">
+                Depende del método. Los envíos económicos tardan 15-30 días, mientras que los express pueden llegar en 7-12 días.
             </p>
             
-            <h3>Términos más buscados sobre Oopbuy</h3>
-            <p>
-                Los usuarios buscan constantemente información sobre Oopbuy usando diferentes términos. Algunos de los más comunes incluyen "oopbuy ropa" para encontrar las mejores réplicas de ropa de marca, "oopbuy zapatillas" para sneakers de calidad, "oopbuy spreadsheet" para acceder al catálogo completo de productos, "oopbuy productos" para explorar todo el catálogo disponible, "como comprar en oopbuy" para tutoriales paso a paso, "oopbuy opiniones" para leer experiencias de otros usuarios, y "oopbuy descuento" para encontrar códigos promocionales.
-            </p>
-            
-            <h2 id="faq">Preguntas Frecuentes sobre Oopbuy</h2>
-            
-            <h3>¿Es seguro comprar en Oopbuy?</h3>
-            <p>
-                Sí, Oopbuy es uno de los agentes chinos más confiables y establecidos del mercado. Cuenta con miles de usuarios satisfechos en todo el mundo y ofrece protección al comprador, fotos QC antes del envío, y servicio de atención al cliente en español.
-            </p>
-            
-            <h3>¿Cuánto tarda el envío desde Oopbuy?</h3>
-            <p>
-                El tiempo de envío depende del método seleccionado. Los envíos económicos pueden tardar entre 15-30 días, mientras que los envíos express pueden llegar en 7-12 días. Oopbuy ofrece diferentes opciones para que elijas según tu presupuesto y urgencia.
-            </p>
-            
-            <h3>¿Qué diferencia hay entre Oopbuy y otros agentes chinos?</h3>
-            <p>
-                Oopbuy se destaca por sus tarifas competitivas, su spreadsheet constantemente actualizado con productos verificados, su comunidad activa en Telegram, su soporte en español, y su sistema transparente de QC photos que te permite aprobar cada producto antes del envío internacional.
-            </p>
-            
-            <p style="margin-top: 50px; font-size: 1.3em; font-weight: bold; text-align: center; color: #ef4317;">
+            <p style="margin-top: 50px; font-size: 1.3em; font-weight: bold; text-align: center; color: #ef4317;" data-translate="cta_final">
                 ¡Únete a miles de clientes satisfechos y descubre por qué Oopbuy es el mejor agente chino del mercado!
             </p>
         </article>
     </section>
     
     <footer>
-        <p>&copy; 2024 Oopbuy - Agente Chino | Todos los derechos reservados</p>
+        <p data-translate="footer_copy">&copy; 2024 Oopbuy - Agente Chino | Todos los derechos reservados</p>
         <p>Oopbuy Ropa | Oopbuy Zapatillas | Oopbuy Spreadsheet | Oopbuy Productos</p>
     </footer>
+
+    <script>
+        // Diccionario de traducciones
+        const translations = {
+            es: {
+                lang_name: "🌐 Español",
+                nav_what_is: "¿Qué es Oopbuy?",
+                nav_faq: "Preguntas frecuentes",
+                hero_title: "Encuentra todo lo que necesitas",
+                hero_desc1: "Oopbuy es un agente chino en el que puedes comprar miles de productos: ropa, zapatillas, reps, accesorios, tecnología...",
+                hero_desc2: "Aquí encontrarás todo lo necesario para",
+                hero_highlight: "aprender a comprar",
+                time_limited: "⏰ TIEMPO LIMITADO",
+                seo_title1: "¿Qué es Oopbuy?",
+                seo_p1: "Oopbuy es un agente chino líder que te permite comprar productos directamente desde China con total seguridad y comodidad.",
+                seo_h3_1: "Oopbuy Ropa - Las Mejores Réplicas",
+                seo_p_clothing: "En Oopbuy ropa encontrarás las mejores réplicas del mercado. Desde camisetas de Supreme hasta sudaderas de Balenciaga.",
+                seo_h3_2: "Oopbuy Zapatillas - Sneakers de Calidad",
+                seo_p_sneakers: "Las zapatillas son uno de nuestros productos estrella. En Oopbuy zapatillas podrás encontrar réplicas de alta calidad de Jordan, Yeezy y más.",
+                seo_h3_3: "Oopbuy Spreadsheet - Tu Catálogo Completo",
+                seo_p_spreadsheet: "Nuestro Oopbuy spreadsheet es una herramienta esencial. Encontrarás miles de productos con enlaces directos a Weidian, Taobao y 1688.",
+                seo_h3_4: "Oopbuy Productos - Amplio Catálogo",
+                seo_p_products: "Más allá de ropa y zapatillas, Oopbuy productos incluye bolsos de lujo, tecnología, joyería y todo tipo de accesorios.",
+                seo_h3_5: "¿Por qué elegir Oopbuy?",
+                li_1: "Precios competitivos: Compra directamente desde China al mejor precio.",
+                li_2: "Calidad garantizada: Todos los productos pasan por un riguroso control de calidad.",
+                li_3: "Envíos internacionales: Enviamos a cualquier parte del mundo.",
+                li_4: "Atención al cliente: Soporte en español y comunidad activa.",
+                seo_h3_6: "Categorías de productos",
+                seo_cat_intro: "En Oopbuy encontrarás una amplia gama de categorías:",
+                li_cat_1: "Ropa de marca: Supreme, Off-White, Balenciaga, Gucci, etc.",
+                li_cat_2: "Zapatillas: Jordan, Yeezy, Nike Dunk, Air Force 1.",
+                li_cat_3: "Accesorios: Bolsos, carteras, cinturones, joyería.",
+                seo_h3_7: "Tutorial Paso a Paso",
+                tutorial_intro: "Comprar en Oopbuy es muy sencillo:",
+                step_1: "Paso 1: Regístrate en Oopbuy para obtener cupones.",
+                step_2: "Paso 2: Explora el Spreadsheet para encontrar productos.",
+                step_3: "Paso 3: Copia los enlaces de Weidian/Taobao/1688.",
+                step_4: "Paso 4: Realiza el pedido y espera el QC.",
+                faq_title: "Preguntas Frecuentes",
+                faq_q1: "¿Es seguro comprar en Oopbuy?",
+                faq_a1: "Sí, es uno de los agentes más confiables con protección al comprador.",
+                faq_q2: "¿Cuánto tarda el envío?",
+                faq_a2: "Económicos: 15-30 días. Express: 7-12 días.",
+                cta_final: "¡Únete a miles de clientes satisfechos en Oopbuy!",
+                footer_copy: "&copy; 2024 Oopbuy - Agente Chino | Todos los derechos reservados"
+            },
+            en: {
+                lang_name: "🌐 English",
+                nav_what_is: "What is Oopbuy?",
+                nav_faq: "FAQ",
+                hero_title: "Find everything you need",
+                hero_desc1: "Oopbuy is a Chinese agent where you can buy thousands of products: clothes, sneakers, reps, accessories, tech...",
+                hero_desc2: "Here you will find everything you need to",
+                hero_highlight: "learn how to buy",
+                time_limited: "⏰ LIMITED TIME",
+                seo_title1: "What is Oopbuy?",
+                seo_p1: "Oopbuy is a leading Chinese agent allowing you to buy products directly from China with safety and comfort.",
+                seo_h3_1: "Oopbuy Clothing - Best Replicas",
+                seo_p_clothing: "In Oopbuy clothing you will find the best market replicas. From Supreme t-shirts to Balenciaga hoodies.",
+                seo_h3_2: "Oopbuy Sneakers - Quality Kicks",
+                seo_p_sneakers: "Sneakers are our star products. At Oopbuy sneakers you can find high-quality replicas of Jordan, Yeezy and more.",
+                seo_h3_3: "Oopbuy Spreadsheet - Full Catalog",
+                seo_p_spreadsheet: "Our Oopbuy spreadsheet is an essential tool. You will find thousands of products with direct links to Weidian, Taobao and 1688.",
+                seo_h3_4: "Oopbuy Products - Wide Catalog",
+                seo_p_products: "Beyond clothes and sneakers, Oopbuy products include luxury bags, tech, jewelry and all kinds of accessories.",
+                seo_h3_5: "Why choose Oopbuy?",
+                li_1: "Competitive prices: Buy directly from China at the best price.",
+                li_2: "Guaranteed quality: All products pass rigorous quality control.",
+                li_3: "International shipping: We ship worldwide.",
+                li_4: "Customer service: Support and active community.",
+                seo_h3_6: "Product Categories",
+                seo_cat_intro: "At Oopbuy you will find a wide range of categories:",
+                li_cat_1: "Designer Clothing: Supreme, Off-White, Balenciaga, Gucci, etc.",
+                li_cat_2: "Sneakers: Jordan, Yeezy, Nike Dunk, Air Force 1.",
+                li_cat_3: "Accessories: Bags, wallets, belts, jewelry.",
+                seo_h3_7: "Step-by-Step Tutorial",
+                tutorial_intro: "Buying on Oopbuy is simple:",
+                step_1: "Step 1: Register on Oopbuy to get coupons.",
+                step_2: "Step 2: Browse the Spreadsheet to find products.",
+                step_3: "Step 3: Copy links from Weidian/Taobao/1688.",
+                step_4: "Step 4: Place order and wait for QC.",
+                faq_title: "Frequently Asked Questions",
+                faq_q1: "Is it safe to buy on Oopbuy?",
+                faq_a1: "Yes, it is one of the most reliable agents with buyer protection.",
+                faq_q2: "How long does shipping take?",
+                faq_a2: "Economic: 15-30 days. Express: 7-12 days.",
+                cta_final: "Join thousands of satisfied customers at Oopbuy!",
+                footer_copy: "&copy; 2024 Oopbuy - Chinese Agent | All rights reserved"
+            },
+            it: {
+                lang_name: "🌐 Italiano",
+                nav_what_is: "Cos'è Oopbuy?",
+                nav_faq: "FAQ",
+                hero_title: "Trova tutto ciò che ti serve",
+                hero_desc1: "Oopbuy è un agente cinese dove puoi acquistare migliaia di prodotti: vestiti, scarpe, reps, accessori...",
+                hero_desc2: "Qui troverai tutto il necessario per",
+                hero_highlight: "imparare a comprare",
+                time_limited: "⏰ TEMPO LIMITATO",
+                seo_title1: "Cos'è Oopbuy?",
+                seo_p1: "Oopbuy è un agente cinese leader che ti permette di acquistare prodotti direttamente dalla Cina in sicurezza.",
+                seo_h3_1: "Oopbuy Abbigliamento - Migliori Repliche",
+                seo_p_clothing: "In Oopbuy troverai le migliori repliche. Dalle magliette Supreme alle felpe Balenciaga.",
+                seo_h3_2: "Oopbuy Sneakers - Qualità",
+                seo_p_sneakers: "Le sneakers sono i nostri prodotti di punta. Trova repliche di alta qualità di Jordan, Yeezy e altro.",
+                seo_h3_3: "Oopbuy Spreadsheet - Catalogo Completo",
+                seo_p_spreadsheet: "Il nostro spreadsheet Oopbuy è essenziale. Troverai migliaia di prodotti con link diretti a Weidian, Taobao e 1688.",
+                seo_h3_4: "Prodotti Oopbuy - Vasto Catalogo",
+                seo_p_products: "Oltre a vestiti e scarpe, Oopbuy include borse di lusso, tecnologia, gioielli e accessori.",
+                seo_h3_5: "Perché scegliere Oopbuy?",
+                li_1: "Prezzi competitivi: Compra direttamente dalla Cina.",
+                li_2: "Qualità garantita: Controllo qualità rigoroso.",
+                li_3: "Spedizioni internazionali: Spediamo in tutto il mondo.",
+                li_4: "Servizio clienti: Supporto e community attiva.",
+                seo_h3_6: "Categorie prodotti",
+                seo_cat_intro: "Su Oopbuy troverai molte categorie:",
+                li_cat_1: "Abbigliamento firmato: Supreme, Off-White, Balenciaga, Gucci.",
+                li_cat_2: "Sneakers: Jordan, Yeezy, Nike Dunk, Air Force 1.",
+                li_cat_3: "Accessori: Borse, portafogli, cinture, gioielli.",
+                seo_h3_7: "Tutorial Passo dopo Passo",
+                tutorial_intro: "Acquistare su Oopbuy è semplice:",
+                step_1: "Passo 1: Registrati su Oopbuy per ottenere coupon.",
+                step_2: "Passo 2: Esplora lo Spreadsheet per trovare prodotti.",
+                step_3: "Passo 3: Copia i link da Weidian/Taobao/1688.",
+                step_4: "Passo 4: Ordina e attendi le foto QC.",
+                faq_title: "Domande Frequenti",
+                faq_q1: "È sicuro comprare su Oopbuy?",
+                faq_a1: "Sì, è uno degli agenti più affidabili con protezione acquirente.",
+                faq_q2: "Quanto tempo ci vuole per la spedizione?",
+                faq_a2: "Economica: 15-30 giorni. Express: 7-12 giorni.",
+                cta_final: "Unisciti a migliaia di clienti soddisfatti su Oopbuy!",
+                footer_copy: "&copy; 2024 Oopbuy - Agente Cinese | Tutti i diritti riservati"
+            },
+            de: {
+                lang_name: "🌐 Deutsch",
+                nav_what_is: "Was ist Oopbuy?",
+                nav_faq: "FAQ",
+                hero_title: "Finde alles, was du brauchst",
+                hero_desc1: "Oopbuy ist ein chinesischer Agent, bei dem du tausende Produkte kaufen kannst: Kleidung, Sneaker, Reps...",
+                hero_desc2: "Hier findest du alles, um zu",
+                hero_highlight: "lernen, wie man kauft",
+                time_limited: "⏰ BEGRENZTE ZEIT",
+                seo_title1: "Was ist Oopbuy?",
+                seo_p1: "Oopbuy ist ein führender chinesischer Agent, der den direkten Einkauf aus China sicher und bequem macht.",
+                seo_h3_1: "Oopbuy Kleidung - Beste Repliken",
+                seo_p_clothing: "Bei Oopbuy findest du die besten Repliken. Von Supreme T-Shirts bis Balenciaga Hoodies.",
+                seo_h3_2: "Oopbuy Sneaker - Qualität",
+                seo_p_sneakers: "Sneaker sind unsere Top-Produkte. Finde hochwertige Repliken von Jordan, Yeezy und mehr.",
+                seo_h3_3: "Oopbuy Spreadsheet - Vollständiger Katalog",
+                seo_p_spreadsheet: "Unser Oopbuy Spreadsheet ist essenziell. Tausende Produkte mit direkten Links zu Weidian, Taobao und 1688.",
+                seo_h3_4: "Oopbuy Produkte - Großer Katalog",
+                seo_p_products: "Neben Kleidung und Sneakern bietet Oopbuy Luxustaschen, Technik, Schmuck und Accessoires.",
+                seo_h3_5: "Warum Oopbuy wählen?",
+                li_1: "Wettbewerbsfähige Preise: Kaufe direkt aus China.",
+                li_2: "Garantierte Qualität: Strenge Qualitätskontrolle.",
+                li_3: "Internationaler Versand: Wir liefern weltweit.",
+                li_4: "Kundenservice: Support und aktive Community.",
+                seo_h3_6: "Produktkategorien",
+                seo_cat_intro: "Bei Oopbuy findest du viele Kategorien:",
+                li_cat_1: "Markenkleidung: Supreme, Off-White, Balenciaga, Gucci.",
+                li_cat_2: "Sneaker: Jordan, Yeezy, Nike Dunk, Air Force 1.",
+                li_cat_3: "Accessoires: Taschen, Geldbörsen, Gürtel.",
+                seo_h3_7: "Schritt-für-Schritt Anleitung",
+                tutorial_intro: "Kaufen bei Oopbuy ist einfach:",
+                step_1: "Schritt 1: Registriere dich bei Oopbuy für Coupons.",
+                step_2: "Schritt 2: Durchsuche das Spreadsheet.",
+                step_3: "Schritt 3: Kopiere Links von Weidian/Taobao/1688.",
+                step_4: "Schritt 4: Bestelle und warte auf QC-Fotos.",
+                faq_title: "Häufig gestellte Fragen",
+                faq_q1: "Ist Oopbuy sicher?",
+                faq_a1: "Ja, einer der zuverlässigsten Agenten mit Käuferschutz.",
+                faq_q2: "Wie lange dauert der Versand?",
+                faq_a2: "Günstig: 15-30 Tage. Express: 7-12 Tage.",
+                cta_final: "Schließe dich tausenden zufriedenen Kunden an!",
+                footer_copy: "&copy; 2024 Oopbuy - Chinesischer Agent | Alle Rechte vorbehalten"
+            },
+            pt: {
+                lang_name: "🌐 Português",
+                nav_what_is: "O que é Oopbuy?",
+                nav_faq: "FAQ",
+                hero_title: "Encontre tudo o que precisa",
+                hero_desc1: "Oopbuy é um agente chinês onde você pode comprar milhares de produtos: roupas, tênis, reps, acessórios...",
+                hero_desc2: "Aqui você encontrará tudo para",
+                hero_highlight: "aprender a comprar",
+                time_limited: "⏰ TEMPO LIMITADO",
+                seo_title1: "O que é Oopbuy?",
+                seo_p1: "Oopbuy é um agente líder que permite comprar produtos diretamente da China com segurança.",
+                seo_h3_1: "Oopbuy Roupas - Melhores Réplicas",
+                seo_p_clothing: "Na Oopbuy você encontra as melhores réplicas. De camisetas Supreme a moletons Balenciaga.",
+                seo_h3_2: "Oopbuy Tênis - Qualidade",
+                seo_p_sneakers: "Tênis são nossos produtos estrela. Encontre réplicas de alta qualidade de Jordan, Yeezy e mais.",
+                seo_h3_3: "Oopbuy Spreadsheet - Catálogo Completo",
+                seo_p_spreadsheet: "Nossa planilha Oopbuy é essencial. Milhares de produtos com links diretos para Weidian, Taobao e 1688.",
+                seo_h3_4: "Produtos Oopbuy - Vasto Catálogo",
+                seo_p_products: "Além de roupas e tênis, Oopbuy inclui bolsas de luxo, tecnologia, joias e acessórios.",
+                seo_h3_5: "Por que escolher Oopbuy?",
+                li_1: "Preços competitivos: Compre diretamente da China.",
+                li_2: "Qualidade garantida: Controle de qualidade rigoroso.",
+                li_3: "Envio internacional: Enviamos para todo o mundo.",
+                li_4: "Suporte ao cliente: Suporte e comunidade ativa.",
+                seo_h3_6: "Categorias de produtos",
+                seo_cat_intro: "Na Oopbuy você encontra muitas categorias:",
+                li_cat_1: "Roupas de marca: Supreme, Off-White, Balenciaga, Gucci.",
+                li_cat_2: "Tênis: Jordan, Yeezy, Nike Dunk, Air Force 1.",
+                li_cat_3: "Acessórios: Bolsas, carteiras, cintos, joias.",
+                seo_h3_7: "Tutorial Passo a Passo",
+                tutorial_intro: "Comprar na Oopbuy é simples:",
+                step_1: "Passo 1: Registre-se na Oopbuy para cupons.",
+                step_2: "Passo 2: Explore a Planilha para encontrar produtos.",
+                step_3: "Passo 3: Copie links de Weidian/Taobao/1688.",
+                step_4: "Passo 4: Faça o pedido e aguarde fotos QC.",
+                faq_title: "Perguntas Frequentes",
+                faq_q1: "É seguro comprar na Oopbuy?",
+                faq_a1: "Sim, é um dos agentes mais confiáveis com proteção ao comprador.",
+                faq_q2: "Quanto tempo demora o envio?",
+                faq_a2: "Econômico: 15-30 dias. Expresso: 7-12 dias.",
+                cta_final: "Junte-se a milhares de clientes satisfeitos!",
+                footer_copy: "&copy; 2024 Oopbuy - Agente Chinês | Todos os direitos reservados"
+            },
+            pl: {
+                lang_name: "🌐 Polski",
+                nav_what_is: "Czym jest Oopbuy?",
+                nav_faq: "FAQ",
+                hero_title: "Znajdź wszystko, czego potrzebujesz",
+                hero_desc1: "Oopbuy to chiński agent, u którego kupisz tysiące produktów: ubrania, buty, repliki, akcesoria...",
+                hero_desc2: "Tutaj znajdziesz wszystko, aby",
+                hero_highlight: "nauczyć się kupować",
+                time_limited: "⏰ OGRANICZONY CZAS",
+                seo_title1: "Czym jest Oopbuy?",
+                seo_p1: "Oopbuy to wiodący agent, umożliwiający bezpieczne zakupy bezpośrednio z Chin.",
+                seo_h3_1: "Oopbuy Odzież - Najlepsze Repliki",
+                seo_p_clothing: "W Oopbuy znajdziesz najlepsze repliki na rynku. Od koszulek Supreme po bluzy Balenciaga.",
+                seo_h3_2: "Oopbuy Buty - Jakość",
+                seo_p_sneakers: "Buty to nasze gwiazdy. Znajdź wysokiej jakości repliki Jordan, Yeezy i innych.",
+                seo_h3_3: "Oopbuy Spreadsheet - Pełny Katalog",
+                seo_p_spreadsheet: "Nasz arkusz Oopbuy to podstawa. Tysiące produktów z linkami do Weidian, Taobao i 1688.",
+                seo_h3_4: "Produkty Oopbuy - Szeroki Katalog",
+                seo_p_products: "Oprócz ubrań i butów, Oopbuy oferuje luksusowe torebki, technologię, biżuterię i akcesoria.",
+                seo_h3_5: "Dlaczego Oopbuy?",
+                li_1: "Konkurencyjne ceny: Kupuj bezpośrednio z Chin.",
+                li_2: "Gwarantowana jakość: Rygorystyczna kontrola jakości.",
+                li_3: "Wysyłka międzynarodowa: Wysyłamy na cały świat.",
+                li_4: "Obsługa klienta: Wsparcie i aktywna społeczność.",
+                seo_h3_6: "Kategorie produktów",
+                seo_cat_intro: "W Oopbuy znajdziesz wiele kategorii:",
+                li_cat_1: "Markowa odzież: Supreme, Off-White, Balenciaga, Gucci.",
+                li_cat_2: "Buty: Jordan, Yeezy, Nike Dunk, Air Force 1.",
+                li_cat_3: "Akcesoria: Torby, portfele, paski, biżuteria.",
+                seo_h3_7: "Poradnik Krok po Kroku",
+                tutorial_intro: "Zakupy na Oopbuy są proste:",
+                step_1: "Krok 1: Zarejestruj się, aby otrzymać kupony.",
+                step_2: "Krok 2: Przeglądaj Spreadsheet w poszukiwaniu produktów.",
+                step_3: "Krok 3: Kopiuj linki z Weidian/Taobao/1688.",
+                step_4: "Krok 4: Złóż zamówienie i czekaj na zdjęcia QC.",
+                faq_title: "Często Zadawane Pytania",
+                faq_q1: "Czy zakupy na Oopbuy są bezpieczne?",
+                faq_a1: "Tak, to jeden z najbardziej zaufanych agentów z ochroną kupującego.",
+                faq_q2: "Ile trwa wysyłka?",
+                faq_a2: "Ekonomiczna: 15-30 dni. Ekspresowa: 7-12 dni.",
+                cta_final: "Dołącz do tysięcy zadowolonych klientów!",
+                footer_copy: "&copy; 2024 Oopbuy - Chiński Agent | Wszelkie prawa zastrzeżone"
+            }
+        };
+
+        // Función para cambiar el idioma
+        function changeLanguage(lang) {
+            // Actualizar el texto del botón principal
+            const langBtn = document.getElementById('lang-display');
+            if (translations[lang] && translations[lang].lang_name) {
+                langBtn.textContent = translations[lang].lang_name;
+            }
+
+            // Seleccionar todos los elementos con el atributo data-translate
+            const elements = document.querySelectorAll('[data-translate]');
+            
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    // Si hay HTML (negritas), usar innerHTML, sino textContent
+                    if (translations[lang][key].includes('<')) {
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>
