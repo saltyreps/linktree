@@ -118,7 +118,11 @@
         @media (max-width: 1024px) {
             .hero-section { grid-template-columns: 1fr; padding: 40px; gap: 40px; height: auto; min-height: auto; align-items: center; }
             .hero-text h1, .hero-text p { text-align: center; }
-            .header { padding: 15px 30px; } .seo-content { padding: 40px; } .card-base { min-height: 300px; }
+            .header { padding: 15px 30px; } .seo-content { padding: 40px; } .card-base .card-base {
+                min-height: auto; /* Importante: elimina la altura fija */
+                aspect-ratio: 16/9; /* Mantiene la proporción rectangular exacta */
+                width: 100%;
+            }
         }
         @media (max-width: 900px) {
             .header { flex-direction: column; gap: 20px; padding-bottom: 25px; }
@@ -663,3 +667,4 @@ Copia este bloque de código y pégalo justo antes de la etiqueta de cierre `</b
 </script>
 </body>
 </html>
+
