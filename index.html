@@ -27,15 +27,15 @@
             color: #000;
         }
         
-        /* Header naranja - Altura reducida */
+        /* Header naranja */
         .header {
             background: linear-gradient(90deg, #ef4317 0%, #fdd75a 100%);
-            padding: 15px 60px; /* Reducido de 30px 80px */
+            padding: 15px 60px; /* Mantengo el header compacto */
         }
         
         .logo {
             color: white;
-            font-size: 2.2em; /* Reducido de 3em */
+            font-size: 2.2em;
             font-weight: 300;
             letter-spacing: 2px;
             font-family: 'Poppins', sans-serif;
@@ -63,15 +63,16 @@
             }
         }
         
-        /* Sección hero - Márgenes reducidos */
+        /* Sección hero */
         .hero-section {
             background: #ffffff;
-            padding: 40px 60px; /* Reducido de 80px */
+            /* Margen superior e inferior reducido a 20px para quitar espacios en blanco */
+            padding: 20px 60px; 
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-            align-items: center; /* Centrado verticalmente */
-            /* Altura mínima para ocupar pantalla menos header, opcional */
+            /* ALINEACIÓN SUPERIOR: Esto alinea el texto con el inicio de la primera card */
+            align-items: start; 
             min-height: calc(100vh - 100px); 
         }
 
@@ -79,20 +80,26 @@
         .hero-right-column {
             display: flex;
             flex-direction: column;
-            gap: 20px; /* Espacio entre cards reducido */
-            height: 100%;
-            justify-content: center;
+            gap: 20px;
+            /* Quitamos el justify-content center para que respeten la alineación superior */
         }
         
+        .hero-text {
+            /* Aseguramos que no tenga margen extra arriba que rompa la alineación */
+            margin-top: 0;
+            padding-top: 10px; /* Un pequeño ajuste visual para alinear ópticamente con la card */
+        }
+
         .hero-text h1 {
-            font-size: 3em; /* Reducido de 4em */
+            font-size: 3.5em; /* Un poco más grande que la versión anterior */
             font-weight: 300;
-            margin-bottom: 20px; /* Reducido de 40px */
-            line-height: 1.2;
+            margin-top: 0; /* Crucial para alinear con la card */
+            margin-bottom: 20px;
+            line-height: 1.1;
         }
         
         .hero-text p {
-            font-size: 1.1em;
+            font-size: 1.15em;
             margin-bottom: 15px;
             color: #333;
         }
@@ -105,8 +112,9 @@
         /* --- Estilos Comunes para las Cards --- */
         .card-base {
             border-radius: 25px;
-            padding: 30px; /* Reducido de 40px */
-            min-height: 240px; /* Reducido drásticamente de 350px para que quepan dos */
+            padding: 30px;
+            /* AUMENTO DE ALTURA: De 240px a 290px */
+            min-height: 290px; 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -146,7 +154,7 @@
         .register-btn {
             background: #000;
             color: white;
-            padding: 12px 30px; /* Ligeramente más pequeños */
+            padding: 12px 30px;
             border: none;
             border-radius: 10px;
             font-size: 1em;
@@ -172,7 +180,7 @@
         .video-banner {
             width: 100%;
             max-width: 1920px;
-            margin: 30px auto 0; /* Margen superior reducido */
+            margin: 20px auto 0;
             overflow: hidden;
             border-radius: 20px;
         }
@@ -188,7 +196,8 @@
         .seo-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px;
+            /* Reducido el padding superior de 60/80 a 30px para juntarlo con el Hero */
+            padding: 30px 60px 60px 60px;
             background: white;
         }
         
@@ -253,10 +262,16 @@
                 gap: 40px;
                 height: auto;
                 min-height: auto;
+                align-items: center; /* En móvil volvemos a centrar */
             }
             
             .hero-text h1 {
                 font-size: 2.5em;
+                text-align: center; /* Centramos texto en móvil */
+            }
+            
+            .hero-text p {
+                text-align: center;
             }
             
             .header {
@@ -268,7 +283,7 @@
             }
 
             .card-base {
-                min-height: 300px; /* En tablet/móvil sí dejamos que sean altas */
+                min-height: 300px; 
             }
         }
         
