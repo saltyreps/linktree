@@ -3,20 +3,457 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salty</title>
+    <meta name="description" content="Oopbuy agente chino oficial - Compra ropa, zapatillas, réplicas y productos de marca. Accede a nuestro spreadsheet con miles de productos y los mejores precios.">
+    <meta name="keywords" content="oopbuy, oopbuy ropa, oopbuy zapatillas, oopbuy spreadsheet, oopbuy productos, agente chino, réplicas, reps, comprar productos chinos">
+    <meta property="og:title" content="Oopbuy - Agente Chino para Comprar Productos de Marca">
+    <meta property="og:description" content="Encuentra ropa, zapatillas, réplicas y accesorios en Oopbuy. Tu agente chino de confianza con spreadsheet actualizado.">
+    <meta property="og:type" content="website">
+    <title>Oopbuy - Agente Chino | Ropa, Zapatillas y Réplicas | Spreadsheet Actualizado</title>
+    
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #000;
+        }
+        
+        /* Header naranja */
+        .header {
+            background: linear-gradient(90deg, #ff6b35 0%, #ff8c42 100%);
+            padding: 30px 80px;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 3em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.8),
+                0 0 20px rgba(255, 255, 255, 0.6),
+                0 0 30px rgba(255, 255, 255, 0.4),
+                0 0 40px rgba(255, 255, 255, 0.2);
+            animation: neonGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes neonGlow {
+            from {
+                text-shadow: 
+                    0 0 10px rgba(255, 255, 255, 0.8),
+                    0 0 20px rgba(255, 255, 255, 0.6),
+                    0 0 30px rgba(255, 255, 255, 0.4);
+            }
+            to {
+                text-shadow: 
+                    0 0 20px rgba(255, 255, 255, 1),
+                    0 0 30px rgba(255, 255, 255, 0.8),
+                    0 0 40px rgba(255, 255, 255, 0.6),
+                    0 0 50px rgba(255, 255, 255, 0.4);
+            }
+        }
+        
+        /* Sección hero */
+        .hero-section {
+            background: #f5f5f5;
+            padding: 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 4em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+        
+        .hero-text p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .hero-text .highlight {
+            color: #ff6b35;
+            font-weight: bold;
+        }
+        
+        /* Card de descuento */
+        .discount-card {
+            background-image: url('15.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 30px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .discount-card .badge {
+            background: rgba(255, 255, 255, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.9em;
+            width: fit-content;
+        }
+        
+        .register-btn {
+            background: #000;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .register-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+        
+        .mascot {
+            position: absolute;
+            right: 30px;
+            bottom: -20px;
+            width: 200px;
+            height: auto;
+        }
+        
+        /* Sección de botones */
+        .buttons-section {
+            background: #fef6f1;
+            padding: 80px;
+            text-align: center;
+        }
+        
+        .buttons-section h2 {
+            color: #ff6b35;
+            font-size: 3em;
+            font-weight: 300;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+        
+        .button-group {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            font-size: 2em;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            border: 3px solid #ff6b35;
+            background: transparent;
+            color: #ff6b35;
+            padding: 20px 60px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .action-button:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+        
+        /* Contenido SEO */
+        .seo-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px;
+            background: white;
+        }
+        
+        .seo-content h2 {
+            color: #ff6b35;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            margin-top: 50px;
+        }
+        
+        .seo-content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .seo-content h3 {
+            color: #333;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content p {
+            color: #555;
+            font-size: 1.15em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content ul {
+            margin-left: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .seo-content li {
+            color: #555;
+            font-size: 1.15em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .seo-content strong {
+            color: #ff6b35;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                padding: 40px;
+            }
+            
+            .hero-text h1 {
+                font-size: 3em;
+            }
+            
+            .header {
+                padding: 20px 40px;
+            }
+            
+            .buttons-section {
+                padding: 40px;
+            }
+            
+            .seo-content {
+                padding: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2em;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5em;
+            }
+            
+            .discount-percentage {
+                font-size: 4em;
+            }
+            
+            .discount-coupons {
+                font-size: 1.3em;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-button {
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
 <body>
-    Salty
+    <!-- Header naranja -->
+    <header class="header">
+        <div class="logo">Oopbuy</div>
+    </header>
+    
+    <!-- Sección hero -->
+    <section class="hero-section">
+        <div class="hero-text">
+            <h1>Encuentra todo lo que necesitas</h1>
+            <p>
+                Oopbuy es un agente chino en el que puedes comprar miles de productos: ropa, zapatillas, reps, accesorios, tecnología...
+            </p>
+            <p>
+                Aquí encontrarás todo lo necesario para <span class="highlight">aprender a comprar</span>
+            </p>
+        </div>
+        
+        <div class="discount-card">
+            <div class="badge">
+                ⏰ TIEMPO LIMITADO
+            </div>
+            <a href="https://oopbuy.com/register?inviteCode=CPE081W7R" class="register-btn" target="_blank" rel="nofollow noopener">
+                REGISTRARSE
+            </a>
+        </div>
+    </section>
+    
+    <!-- Botones de acción -->
+    <section class="buttons-section">
+        <h2>RECURSOS</h2>
+        <div class="button-group">
+            <a href="#tutorial" class="action-button">TUTORIAL</a>
+            <a href="https://docs.google.com/spreadsheets/d/1AzcvKVptzoWYFR5xeIM90Z2GyiL9lsCSy8bWWyYW7Cc/edit?usp=sharing" 
+               class="action-button" 
+               target="_blank" 
+               rel="noopener">
+                IR A SPREADSHEET
+            </a>
+            <a href="https://ardent37.github.io/redirect-telegram-salty/?v=3" 
+               class="action-button" 
+               target="_blank" 
+               rel="noopener">
+                TELEGRAM
+            </a>
+        </div>
+    </section>
+    
+    <!-- Contenido SEO -->
+    <section class="seo-content">
+        <article>
+            <h2>¿Qué es Oopbuy?</h2>
+            <p>
+                Oopbuy es un agente chino líder que te permite comprar productos directamente desde China con total seguridad y comodidad. Especializado en <strong>ropa</strong>, <strong>zapatillas</strong>, <strong>réplicas</strong> y productos de marca, Oopbuy se ha convertido en la opción preferida de miles de compradores en todo el mundo.
+            </p>
+            
+            <h3>Oopbuy Ropa - Las Mejores Réplicas</h3>
+            <p>
+                En <strong>Oopbuy ropa</strong> encontrarás las mejores réplicas del mercado. Desde camisetas de Supreme hasta sudaderas de Balenciaga, pasando por piezas exclusivas de Off-White y Gucci. Nuestro catálogo se actualiza constantemente con las últimas colecciones y tendencias. La calidad de la ropa disponible en Oopbuy es excepcional, con réplicas 1:1 que son prácticamente indistinguibles de las originales.
+            </p>
+            
+            <h3>Oopbuy Zapatillas - Sneakers de Calidad</h3>
+            <p>
+                Las zapatillas son uno de nuestros productos estrella. En <strong>Oopbuy zapatillas</strong> podrás encontrar réplicas de alta calidad de Jordan, Yeezy, Nike Dunk, Air Force 1 y muchas más. Todas verificadas y con QC (Quality Control) disponible antes del envío. Trabajamos con los mejores sellers del mercado chino para garantizar que cada par de zapatillas cumpla con los más altos estándares de calidad.
+            </p>
+            
+            <h3>Oopbuy Spreadsheet - Tu Catálogo Completo</h3>
+            <p>
+                Nuestro <strong>Oopbuy spreadsheet</strong> es una herramienta esencial para todos nuestros clientes. En este documento encontrarás miles de productos organizados por categorías, con enlaces directos a Weidian, Taobao y 1688, precios actualizados y referencias de vendedores verificados. El spreadsheet incluye secciones dedicadas a ropa, zapatillas, accesorios, tecnología y mucho más. Se actualiza regularmente para garantizar que siempre tengas acceso a los mejores productos y precios del mercado.
+            </p>
+            
+            <h3>Oopbuy Productos - Amplio Catálogo</h3>
+            <p>
+                Más allá de ropa y zapatillas, <strong>Oopbuy productos</strong> incluye una increíble variedad de artículos. Encuentra réplicas de bolsos de lujo de marcas como Louis Vuitton, Hermès y Chanel. Descubre tecnología como AirPods, smartwatches y accesorios para móviles. Explora joyería, gafas de sol, cinturones, gorras y todo tipo de accesorios de moda. Todo disponible a precios inmejorables directamente desde China.
+            </p>
+            
+            <h3>¿Por qué elegir Oopbuy como tu agente chino?</h3>
+            <ul>
+                <li><strong>Precios competitivos:</strong> Compra directamente desde China al mejor precio del mercado sin intermediarios innecesarios</li>
+                <li><strong>Calidad garantizada:</strong> Todos los productos pasan por un riguroso control de calidad antes del envío internacional</li>
+                <li><strong>Envíos internacionales:</strong> Enviamos a cualquier parte del mundo con diferentes opciones de envío según tus necesidades</li>
+                <li><strong>Atención al cliente:</strong> Soporte en español disponible y comunidad activa en Telegram para resolver todas tus dudas</li>
+                <li><strong>Spreadsheet actualizado:</strong> Acceso a miles de productos verificados con enlaces directos y precios actualizados</li>
+                <li><strong>Transparencia total:</strong> Fotos QC de tus productos antes del envío para que apruebes la calidad</li>
+                <li><strong>Servicio de almacenamiento:</strong> Guarda tus productos hasta que estés listo para enviar todo junto</li>
+                <li><strong>Múltiples métodos de pago:</strong> Acepta diferentes formas de pago para tu comodidad</li>
+            </ul>
+            
+            <h3>Categorías de productos en Oopbuy</h3>
+            <p>
+                En Oopbuy encontrarás una amplia gama de categorías de productos para satisfacer todas tus necesidades de compra desde China:
+            </p>
+            <ul>
+                <li><strong>Ropa de marca:</strong> Supreme, Off-White, Balenciaga, Gucci, Essentials, Stone Island, Trapstar y muchas más</li>
+                <li><strong>Zapatillas:</strong> Jordan 1, Jordan 4, Yeezy 350, Yeezy Slides, Nike Dunk, Air Force 1, New Balance</li>
+                <li><strong>Bolsos y carteras:</strong> Louis Vuitton, Hermès, Gucci, Prada, Dior</li>
+                <li><strong>Tecnología:</strong> AirPods Pro, Apple Watch, auriculares, cargadores, fundas premium</li>
+                <li><strong>Accesorios:</strong> Cinturones, gorras, calcetines, bufandas, guantes</li>
+                <li><strong>Joyería:</strong> Cadenas, pulseras, anillos, relojes de marca</li>
+                <li><strong>Gafas:</strong> Gafas de sol de Ray-Ban, Oakley, Cartier y más</li>
+            </ul>
+            
+            <h3>Cómo Comprar en Oopbuy - Tutorial Paso a Paso</h3>
+            <p id="tutorial">
+                Comprar en Oopbuy es muy sencillo y seguro. Aquí te explicamos el proceso completo:
+            </p>
+            <ul>
+                <li><strong>Paso 1 - Registro:</strong> Regístrate en Oopbuy usando nuestro código de invitación para obtener tu descuento del 15% más 40 cupones exclusivos</li>
+                <li><strong>Paso 2 - Explora el Spreadsheet:</strong> Consulta nuestro spreadsheet de Oopbuy para encontrar los productos que te interesan. Encontrarás miles de opciones organizadas por categoría</li>
+                <li><strong>Paso 3 - Copia los enlaces:</strong> Copia los enlaces de Weidian, Taobao o 1688 de los productos que quieres comprar</li>
+                <li><strong>Paso 4 - Crea tu pedido:</strong> En la plataforma de Oopbuy, pega los enlaces y selecciona talla, color y cantidad</li>
+                <li><strong>Paso 5 - Pago:</strong> Realiza el pago del producto más las tarifas de servicio de Oopbuy</li>
+                <li><strong>Paso 6 - QC Photos:</strong> Oopbuy comprará el producto y te enviará fotos de calidad para que apruebes</li>
+                <li><strong>Paso 7 - Envío internacional:</strong> Una vez apruebes, elige tu método de envío y Oopbuy enviará todo a tu dirección</li>
+            </ul>
+            
+            <h3>Ventajas de usar el Spreadsheet de Oopbuy</h3>
+            <p>
+                El <strong>Oopbuy spreadsheet</strong> es una de las herramientas más valiosas para cualquier comprador. Contiene enlaces verificados a productos de calidad, información sobre los mejores sellers, comparativas de precios entre diferentes vendedores, recomendaciones de sizing para cada marca, y se actualiza constantemente con nuevos productos y tendencias. Es completamente gratuito y accesible para todos los usuarios de Oopbuy.
+            </p>
+            
+            <h3>Comunidad y Soporte en Telegram</h3>
+            <p>
+                Únete a nuestra activa comunidad en Telegram donde encontrarás otros compradores compartiendo sus experiencias, reviews de productos, recomendaciones de sellers, guías de compra actualizadas, ofertas exclusivas y soporte directo del equipo de Oopbuy. Es el lugar perfecto para resolver todas tus dudas sobre compras desde China.
+            </p>
+            
+            <h3>Términos más buscados sobre Oopbuy</h3>
+            <p>
+                Los usuarios buscan constantemente información sobre Oopbuy usando diferentes términos. Algunos de los más comunes incluyen "oopbuy ropa" para encontrar las mejores réplicas de ropa de marca, "oopbuy zapatillas" para sneakers de calidad, "oopbuy spreadsheet" para acceder al catálogo completo de productos, "oopbuy productos" para explorar todo el catálogo disponible, "como comprar en oopbuy" para tutoriales paso a paso, "oopbuy opiniones" para leer experiencias de otros usuarios, y "oopbuy descuento" para encontrar códigos promocionales.
+            </p>
+            
+            <h2>Preguntas Frecuentes sobre Oopbuy</h2>
+            
+            <h3>¿Es seguro comprar en Oopbuy?</h3>
+            <p>
+                Sí, Oopbuy es uno de los agentes chinos más confiables y establecidos del mercado. Cuenta con miles de usuarios satisfechos en todo el mundo y ofrece protección al comprador, fotos QC antes del envío, y servicio de atención al cliente en español.
+            </p>
+            
+            <h3>¿Cuánto tarda el envío desde Oopbuy?</h3>
+            <p>
+                El tiempo de envío depende del método seleccionado. Los envíos económicos pueden tardar entre 15-30 días, mientras que los envíos express pueden llegar en 7-12 días. Oopbuy ofrece diferentes opciones para que elijas según tu presupuesto y urgencia.
+            </p>
+            
+            <h3>¿Qué diferencia hay entre Oopbuy y otros agentes chinos?</h3>
+            <p>
+                Oopbuy se destaca por sus tarifas competitivas, su spreadsheet constantemente actualizado con productos verificados, su comunidad activa en Telegram, su soporte en español, y su sistema transparente de QC photos que te permite aprobar cada producto antes del envío internacional.
+            </p>
+            
+            <p style="margin-top: 50px; font-size: 1.3em; font-weight: bold; text-align: center; color: #ff6b35;">
+                ¡Únete a miles de clientes satisfechos y descubre por qué Oopbuy es el mejor agente chino del mercado!
+            </p>
+        </article>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Oopbuy - Agente Chino | Todos los derechos reservados</p>
+        <p>Oopbuy Ropa | Oopbuy Zapatillas | Oopbuy Spreadsheet | Oopbuy Productos</p>
+    </footer>
 </body>
 </html>
