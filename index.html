@@ -99,8 +99,11 @@
             font-size: 0.85em; width: fit-content;
         }
         
-        /* Video */
-        .video-banner { width: 100%; max-width: 1920px; margin: 50px auto 0; overflow: hidden; border-radius: 20px; }
+        /* Video - Estilos Generales */
+        .video-banner { width: 100%; max-width: 1920px; overflow: hidden; border-radius: 20px; }
+        /* El primer video tendrá 50px de margen, los siguientes los ajustaremos inline */
+        .video-banner:first-of-type { margin: 50px auto 0; }
+        
         .video-banner video { width: 100%; height: auto; display: block; pointer-events: none; }
         
         /* SEO Content */
@@ -115,17 +118,17 @@
         footer { background: #333; color: white; text-align: center; padding: 40px; }
         footer p { margin: 10px 0; }
         
-        /* --- AQUÍ ESTÁ LA CORRECCIÓN MÓVIL --- */
+        /* --- CORRECCIÓN MÓVIL --- */
         @media (max-width: 1024px) {
             .hero-section { grid-template-columns: 1fr; padding: 40px; gap: 40px; height: auto; min-height: auto; align-items: center; }
             .hero-text h1, .hero-text p { text-align: center; }
             .header { padding: 15px 30px; } 
             .seo-content { padding: 40px; } 
             
-            /* CORRECCIÓN: Quitamos min-height fija y usamos aspect-ratio */
+            /* Recuadros: altura automática y proporción fija */
             .card-base { 
                 min-height: auto; 
-                aspect-ratio: 16/9; /* Mantiene la proporción panorámica en móvil */
+                aspect-ratio: 16/9; 
                 width: 100%;
             }
         }
@@ -672,5 +675,6 @@ Copia este bloque de código y pégalo justo antes de la etiqueta de cierre `</b
 </script>
 </body>
 </html>
+
 
 
