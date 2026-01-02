@@ -66,8 +66,8 @@
         /* Sección hero */
         .hero-section {
             background: #ffffff;
-            /* AUMENTADO: Padding top 50px para dar aire respecto al header */
-            padding: 50px 60px 20px 60px; 
+            /* AUMENTADO: Padding top 75px (antes 50px) */
+            padding: 75px 60px 20px 60px; 
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
@@ -106,16 +106,24 @@
             font-weight: bold;
         }
         
-        /* --- Estilos Comunes para las Cards --- */
+        /* --- Estilos Comunes para las Cards (Ahora son Enlaces <a>) --- */
         .card-base {
             border-radius: 25px;
-            /* REDUCIDO: Padding a 20px para que la etiqueta esté más cerca del borde */
-            padding: 20px; 
+            /* REDUCIDO: Padding a 3px para la etiqueta */
+            padding: 3px; 
             min-height: 290px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            display: block; /* Necesario para que el <a> se comporte como bloque */
             position: relative;
+            text-decoration: none;
+            /* ANIMACIÓN: Transición suave */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Efecto Hover (Levitación) */
+        .card-base:hover {
+            transform: translateY(-8px); /* Se eleva */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* Sombra al elevarse */
+            cursor: pointer;
         }
 
         /* Card de descuento (Superior) */
@@ -147,39 +155,12 @@
             width: fit-content;
         }
         
-        /* Botones negros */
-        .register-btn {
-            background: #000;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 10px;
-            font-size: 1em;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            width: fit-content;
-            /* CAMBIO: Alineación a la derecha (flex-end) */
-            align-self: flex-end; 
-        }
-
-        .spreadsheet-card .register-btn {
-            margin-top: auto;
-        }
-        
-        .register-btn:hover {
-            background: #333;
-            transform: translateY(-2px);
-        }
-        
         /* Banner de video */
         .video-banner {
             width: 100%;
             max-width: 1920px;
-            /* AUMENTADO: Margen superior a 35px (+15px de lo anterior) */
-            margin: 35px auto 0;
+            /* AUMENTADO: Margen superior a 50px (antes 35px) */
+            margin: 50px auto 0;
             overflow: hidden;
             border-radius: 20px;
         }
@@ -319,23 +300,20 @@
         </div>
         
         <div class="hero-right-column">
-            <div class="card-base discount-card">
+            <a href="https://oopbuy.com/register?inviteCode=CPE081W7R" 
+               class="card-base discount-card" 
+               target="_blank" 
+               rel="nofollow noopener">
                 <div class="badge">
                     ⏰ TIEMPO LIMITADO
                 </div>
-                <a href="https://oopbuy.com/register?inviteCode=CPE081W7R" class="register-btn" target="_blank" rel="nofollow noopener">
-                    REGISTRARSE
-                </a>
-            </div>
+            </a>
 
-            <div class="card-base spreadsheet-card">
-                <a href="https://docs.google.com/spreadsheets/d/1AzcvKVptzoWYFR5xeIM90Z2GyiL9lsCSy8bWWyYW7Cc/edit?usp=sharing" 
-                   class="register-btn" 
-                   target="_blank" 
-                   rel="noopener">
-                    BUSCAR
-                </a>
-            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1AzcvKVptzoWYFR5xeIM90Z2GyiL9lsCSy8bWWyYW7Cc/edit?usp=sharing" 
+               class="card-base spreadsheet-card" 
+               target="_blank" 
+               rel="noopener">
+               </a>
         </div>
     </section>
     
