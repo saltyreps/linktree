@@ -10,6 +10,11 @@
     <meta property="og:type" content="website">
     <title>Oopbuy - Agente Chino | Ropa, Zapatillas y Réplicas | Spreadsheet Actualizado</title>
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -18,7 +23,7 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Cabin', sans-serif;
             line-height: 1.6;
             color: #000;
         }
@@ -34,6 +39,7 @@
             font-size: 3em;
             font-weight: 300;
             letter-spacing: 2px;
+            font-family: 'Poppins', sans-serif;
             text-shadow: 
                 0 0 10px rgba(255, 255, 255, 0.8),
                 0 0 20px rgba(255, 255, 255, 0.6),
@@ -60,7 +66,7 @@
         
         /* Sección hero */
         .hero-section {
-            background: #f5f5f5;
+            background: #ffffff;
             padding: 80px;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -126,6 +132,8 @@
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s ease;
+            width: fit-content;
+            align-self: flex-end;
         }
         
         .register-btn:hover {
@@ -139,6 +147,23 @@
             bottom: -20px;
             width: 200px;
             height: auto;
+        }
+        
+        /* Banner de video */
+        .video-banner {
+            width: 100%;
+            max-width: 1920px;
+            margin: 60px auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-banner video {
+            width: 100%;
+            height: auto;
+            display: block;
+            pointer-events: none;
         }
         
         /* Sección de botones */
@@ -313,6 +338,13 @@
             <p>
                 Aquí encontrarás todo lo necesario para <span class="highlight">aprender a comprar</span>
             </p>
+            
+            <!-- Banner de video -->
+            <div class="video-banner">
+                <video autoplay loop muted playsinline>
+                    <source src="banner sneakers rotating.mp4" type="video/mp4">
+                </video>
+            </div>
         </div>
         
         <div class="discount-card">
