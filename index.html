@@ -10,7 +10,6 @@
     <meta property="og:type" content="website">
     <title>Oopbuy - Agente Chino | Ropa, Zapatillas y Réplicas | Spreadsheet Actualizado</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -28,15 +27,15 @@
             color: #000;
         }
         
-        /* Header naranja */
+        /* Header naranja - Altura reducida */
         .header {
-            background: linear-gradient(90deg, #ff6b35 0%, #ff8c42 100%);
-            padding: 30px 80px;
+            background: linear-gradient(90deg, #ef4317 0%, #fdd75a 100%);
+            padding: 15px 60px; /* Reducido de 30px 80px */
         }
         
         .logo {
             color: white;
-            font-size: 3em;
+            font-size: 2.2em; /* Reducido de 3em */
             font-weight: 300;
             letter-spacing: 2px;
             font-family: 'Poppins', sans-serif;
@@ -64,76 +63,104 @@
             }
         }
         
-        /* Sección hero */
+        /* Sección hero - Márgenes reducidos */
         .hero-section {
             background: #ffffff;
-            padding: 80px;
+            padding: 40px 60px; /* Reducido de 80px */
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+            gap: 50px;
+            align-items: center; /* Centrado verticalmente */
+            /* Altura mínima para ocupar pantalla menos header, opcional */
+            min-height: calc(100vh - 100px); 
+        }
+
+        /* Contenedor columna derecha */
+        .hero-right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Espacio entre cards reducido */
+            height: 100%;
+            justify-content: center;
         }
         
         .hero-text h1 {
-            font-size: 4em;
+            font-size: 3em; /* Reducido de 4em */
             font-weight: 300;
-            margin-bottom: 40px;
+            margin-bottom: 20px; /* Reducido de 40px */
             line-height: 1.2;
         }
         
         .hero-text p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
+            font-size: 1.1em;
+            margin-bottom: 15px;
             color: #333;
         }
         
         .hero-text .highlight {
-            color: #ff6b35;
+            color: #ef4317;
             font-weight: bold;
         }
         
-        /* Card de descuento */
+        /* --- Estilos Comunes para las Cards --- */
+        .card-base {
+            border-radius: 25px;
+            padding: 30px; /* Reducido de 40px */
+            min-height: 240px; /* Reducido drásticamente de 350px para que quepan dos */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* Card de descuento (Superior) */
         .discount-card {
             background-image: url('15.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            border-radius: 30px;
-            padding: 40px;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background-color: #f9f9f9; 
+        }
+
+        /* Nueva Card de Spreadsheet (Inferior) */
+        .spreadsheet-card {
+            background-image: url('spreadsheet.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         
-        .discount-card .badge {
+        .badge {
             background: rgba(255, 255, 255, 0.3);
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 15px;
+            padding: 6px 12px;
             border-radius: 20px;
             color: white;
-            font-size: 0.9em;
+            font-size: 0.85em;
             width: fit-content;
         }
         
+        /* Botones negros */
         .register-btn {
             background: #000;
             color: white;
-            padding: 15px 40px;
+            padding: 12px 30px; /* Ligeramente más pequeños */
             border: none;
             border-radius: 10px;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s ease;
             width: fit-content;
-            align-self: flex-end;
+            align-self: flex-start; 
+        }
+
+        .spreadsheet-card .register-btn {
+            margin-top: auto;
         }
         
         .register-btn:hover {
@@ -141,22 +168,13 @@
             transform: translateY(-2px);
         }
         
-        .mascot {
-            position: absolute;
-            right: 30px;
-            bottom: -20px;
-            width: 200px;
-            height: auto;
-        }
-        
         /* Banner de video */
         .video-banner {
             width: 100%;
             max-width: 1920px;
-            margin: 60px auto;
+            margin: 30px auto 0; /* Margen superior reducido */
             overflow: hidden;
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
         
         .video-banner video {
@@ -166,58 +184,16 @@
             pointer-events: none;
         }
         
-        /* Sección de botones */
-        .buttons-section {
-            background: #fef6f1;
-            padding: 80px;
-            text-align: center;
-        }
-        
-        .buttons-section h2 {
-            color: #ff6b35;
-            font-size: 3em;
-            font-weight: 300;
-            margin-bottom: 50px;
-            letter-spacing: 2px;
-        }
-        
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .action-button {
-            border: 3px solid #ff6b35;
-            background: transparent;
-            color: #ff6b35;
-            padding: 20px 60px;
-            border-radius: 50px;
-            font-size: 1.3em;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-        
-        .action-button:hover {
-            background: #ff6b35;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
-        }
-        
         /* Contenido SEO */
         .seo-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px;
+            padding: 60px;
             background: white;
         }
         
         .seo-content h2 {
-            color: #ff6b35;
+            color: #ef4317;
             font-size: 2.5em;
             margin-bottom: 30px;
             margin-top: 50px;
@@ -254,7 +230,7 @@
         }
         
         .seo-content strong {
-            color: #ff6b35;
+            color: #ef4317;
         }
         
         /* Footer */
@@ -274,61 +250,44 @@
             .hero-section {
                 grid-template-columns: 1fr;
                 padding: 40px;
-            }
-            
-            .hero-text h1 {
-                font-size: 3em;
-            }
-            
-            .header {
-                padding: 20px 40px;
-            }
-            
-            .buttons-section {
-                padding: 40px;
-            }
-            
-            .seo-content {
-                padding: 40px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2em;
+                gap: 40px;
+                height: auto;
+                min-height: auto;
             }
             
             .hero-text h1 {
                 font-size: 2.5em;
             }
             
-            .discount-percentage {
-                font-size: 4em;
+            .header {
+                padding: 15px 30px;
             }
             
-            .discount-coupons {
-                font-size: 1.3em;
+            .seo-content {
+                padding: 40px;
+            }
+
+            .card-base {
+                min-height: 300px; /* En tablet/móvil sí dejamos que sean altas */
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.8em;
             }
             
-            .button-group {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .action-button {
-                width: 100%;
-                max-width: 300px;
+            .hero-text h1 {
+                font-size: 2.2em;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header naranja -->
     <header class="header">
         <div class="logo">Oopbuy</div>
     </header>
     
-    <!-- Sección hero -->
     <section class="hero-section">
         <div class="hero-text">
             <h1>Encuentra todo lo que necesitas</h1>
@@ -339,7 +298,6 @@
                 Aquí encontrarás todo lo necesario para <span class="highlight">aprender a comprar</span>
             </p>
             
-            <!-- Banner de video -->
             <div class="video-banner">
                 <video autoplay loop muted playsinline>
                     <source src="banner sneakers rotating.mp4" type="video/mp4">
@@ -347,37 +305,27 @@
             </div>
         </div>
         
-        <div class="discount-card">
-            <div class="badge">
-                ⏰ TIEMPO LIMITADO
+        <div class="hero-right-column">
+            <div class="card-base discount-card">
+                <div class="badge">
+                    ⏰ TIEMPO LIMITADO
+                </div>
+                <a href="https://oopbuy.com/register?inviteCode=CPE081W7R" class="register-btn" target="_blank" rel="nofollow noopener">
+                    REGISTRARSE
+                </a>
             </div>
-            <a href="https://oopbuy.com/register?inviteCode=CPE081W7R" class="register-btn" target="_blank" rel="nofollow noopener">
-                REGISTRARSE
-            </a>
+
+            <div class="card-base spreadsheet-card">
+                <a href="https://docs.google.com/spreadsheets/d/1AzcvKVptzoWYFR5xeIM90Z2GyiL9lsCSy8bWWyYW7Cc/edit?usp=sharing" 
+                   class="register-btn" 
+                   target="_blank" 
+                   rel="noopener">
+                    BUSCAR
+                </a>
+            </div>
         </div>
     </section>
     
-    <!-- Botones de acción -->
-    <section class="buttons-section">
-        <h2>RECURSOS</h2>
-        <div class="button-group">
-            <a href="#tutorial" class="action-button">TUTORIAL</a>
-            <a href="https://docs.google.com/spreadsheets/d/1AzcvKVptzoWYFR5xeIM90Z2GyiL9lsCSy8bWWyYW7Cc/edit?usp=sharing" 
-               class="action-button" 
-               target="_blank" 
-               rel="noopener">
-                IR A SPREADSHEET
-            </a>
-            <a href="https://ardent37.github.io/redirect-telegram-salty/?v=3" 
-               class="action-button" 
-               target="_blank" 
-               rel="noopener">
-                TELEGRAM
-            </a>
-        </div>
-    </section>
-    
-    <!-- Contenido SEO -->
     <section class="seo-content">
         <article>
             <h2>¿Qué es Oopbuy?</h2>
@@ -477,7 +425,7 @@
                 Oopbuy se destaca por sus tarifas competitivas, su spreadsheet constantemente actualizado con productos verificados, su comunidad activa en Telegram, su soporte en español, y su sistema transparente de QC photos que te permite aprobar cada producto antes del envío internacional.
             </p>
             
-            <p style="margin-top: 50px; font-size: 1.3em; font-weight: bold; text-align: center; color: #ff6b35;">
+            <p style="margin-top: 50px; font-size: 1.3em; font-weight: bold; text-align: center; color: #ef4317;">
                 ¡Únete a miles de clientes satisfechos y descubre por qué Oopbuy es el mejor agente chino del mercado!
             </p>
         </article>
