@@ -99,9 +99,9 @@
             font-size: 0.85em; width: fit-content;
         }
         
-        /* Video - Estilos Generales */
+        /* Video */
         .video-banner { width: 100%; max-width: 1920px; overflow: hidden; border-radius: 20px; }
-        /* El primer video tendrá 50px de margen, los siguientes los ajustaremos inline */
+        /* Margen solo para el primer video */
         .video-banner:first-of-type { margin: 50px auto 0; }
         
         .video-banner video { width: 100%; height: auto; display: block; pointer-events: none; }
@@ -118,14 +118,13 @@
         footer { background: #333; color: white; text-align: center; padding: 40px; }
         footer p { margin: 10px 0; }
         
-        /* --- CORRECCIÓN MÓVIL --- */
         @media (max-width: 1024px) {
             .hero-section { grid-template-columns: 1fr; padding: 40px; gap: 40px; height: auto; min-height: auto; align-items: center; }
             .hero-text h1, .hero-text p { text-align: center; }
             .header { padding: 15px 30px; } 
             .seo-content { padding: 40px; } 
             
-            /* Recuadros: altura automática y proporción fija */
+            /* CORRECCIÓN MÓVIL: Aspect Ratio */
             .card-base { 
                 min-height: auto; 
                 aspect-ratio: 16/9; 
@@ -675,6 +674,7 @@ Copia este bloque de código y pégalo justo antes de la etiqueta de cierre `</b
 </script>
 </body>
 </html>
+
 
 
 
