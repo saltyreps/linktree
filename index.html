@@ -30,7 +30,7 @@
         /* Header naranja */
         .header {
             background: linear-gradient(90deg, #ef4317 0%, #fdd75a 100%);
-            padding: 15px 60px; /* Mantengo el header compacto */
+            padding: 15px 60px;
         }
         
         .logo {
@@ -66,12 +66,11 @@
         /* Sección hero */
         .hero-section {
             background: #ffffff;
-            /* Margen superior e inferior reducido a 20px para quitar espacios en blanco */
-            padding: 20px 60px; 
+            /* AUMENTADO: Padding top 50px para dar aire respecto al header */
+            padding: 50px 60px 20px 60px; 
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-            /* ALINEACIÓN SUPERIOR: Esto alinea el texto con el inicio de la primera card */
             align-items: start; 
             min-height: calc(100vh - 100px); 
         }
@@ -81,19 +80,17 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-            /* Quitamos el justify-content center para que respeten la alineación superior */
         }
         
         .hero-text {
-            /* Aseguramos que no tenga margen extra arriba que rompa la alineación */
             margin-top: 0;
-            padding-top: 10px; /* Un pequeño ajuste visual para alinear ópticamente con la card */
+            padding-top: 10px;
         }
 
         .hero-text h1 {
-            font-size: 3.5em; /* Un poco más grande que la versión anterior */
+            font-size: 3.5em;
             font-weight: 300;
-            margin-top: 0; /* Crucial para alinear con la card */
+            margin-top: 0;
             margin-bottom: 20px;
             line-height: 1.1;
         }
@@ -112,8 +109,8 @@
         /* --- Estilos Comunes para las Cards --- */
         .card-base {
             border-radius: 25px;
-            padding: 30px;
-            /* AUMENTO DE ALTURA: De 240px a 290px */
+            /* REDUCIDO: Padding a 20px para que la etiqueta esté más cerca del borde */
+            padding: 20px; 
             min-height: 290px; 
             display: flex;
             flex-direction: column;
@@ -164,7 +161,8 @@
             display: inline-block;
             transition: all 0.3s ease;
             width: fit-content;
-            align-self: flex-start; 
+            /* CAMBIO: Alineación a la derecha (flex-end) */
+            align-self: flex-end; 
         }
 
         .spreadsheet-card .register-btn {
@@ -180,7 +178,8 @@
         .video-banner {
             width: 100%;
             max-width: 1920px;
-            margin: 20px auto 0;
+            /* AUMENTADO: Margen superior a 35px (+15px de lo anterior) */
+            margin: 35px auto 0;
             overflow: hidden;
             border-radius: 20px;
         }
@@ -196,7 +195,6 @@
         .seo-content {
             max-width: 1200px;
             margin: 0 auto;
-            /* Reducido el padding superior de 60/80 a 30px para juntarlo con el Hero */
             padding: 30px 60px 60px 60px;
             background: white;
         }
@@ -262,12 +260,12 @@
                 gap: 40px;
                 height: auto;
                 min-height: auto;
-                align-items: center; /* En móvil volvemos a centrar */
+                align-items: center;
             }
             
             .hero-text h1 {
                 font-size: 2.5em;
-                text-align: center; /* Centramos texto en móvil */
+                text-align: center;
             }
             
             .hero-text p {
