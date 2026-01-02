@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Cw7FeRXJwhkP7GH9ZlHOS7rmhtJVkg3Lb8IEmzFCFb4" />
     <meta name="description" content="Oopbuy agente chino oficial - Compra ropa, zapatillas, réplicas y productos de marca. Accede a nuestro spreadsheet con miles de productos y los mejores precios.">
     <meta name="keywords" content="oopbuy, oopbuy ropa, oopbuy zapatillas, oopbuy spreadsheet, oopbuy productos, agente chino, réplicas, reps, comprar productos chinos">
     <meta property="og:title" content="Oopbuy - Agente Chino para Comprar Productos de Marca">
     <meta property="og:description" content="Encuentra ropa, zapatillas, réplicas y accesorios en Oopbuy. Tu agente chino de confianza con spreadsheet actualizado.">
     <meta property="og:type" content="website">
+    
     <title>Oopbuy Spreadsheet (2026) | Ropa, Zapatillas y Accesorios| </title>
-    <meta name="google-site-verification" content="Cw7FeRXJwhkP7GH9ZlHOS7rmhtJVkg3Lb8IEmzFCFb4" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -22,16 +23,25 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en los links */
+        }
+        
         body {
             font-family: 'Cabin', sans-serif;
             line-height: 1.6;
             color: #000;
         }
         
-        /* Header naranja */
+        /* Header naranja actualizado con Flexbox */
         .header {
             background: linear-gradient(90deg, #ef4317 0%, #fdd75a 100%);
             padding: 15px 60px;
+            display: flex; /* Para alinear Logo a la izq y Menú a la derecha */
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 100;
         }
         
         .logo {
@@ -43,9 +53,86 @@
             text-shadow: 
                 0 0 10px rgba(255, 255, 255, 0.8),
                 0 0 20px rgba(255, 255, 255, 0.6),
-                0 0 30px rgba(255, 255, 255, 0.4),
-                0 0 40px rgba(255, 255, 255, 0.2);
+                0 0 30px rgba(255, 255, 255, 0.4);
             animation: neonGlow 2s ease-in-out infinite alternate;
+        }
+
+        /* Nueva Navegación Derecha */
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1em;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Estilos del Dropdown de Idiomas */
+        .lang-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .lang-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: white;
+            min-width: 140px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            border-radius: 12px;
+            z-index: 1000;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .lang-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+
+        .lang-content a:hover {
+            background-color: #f5f5f5;
+            color: #ef4317;
+        }
+
+        /* Mostrar menú al pasar el ratón */
+        .lang-dropdown:hover .lang-content {
+            display: block;
         }
         
         @keyframes neonGlow {
@@ -67,7 +154,6 @@
         /* Sección hero */
         .hero-section {
             background: #ffffff;
-            /* AUMENTADO: Padding top 75px (antes 50px) */
             padding: 75px 60px 20px 60px; 
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -76,7 +162,6 @@
             min-height: calc(100vh - 100px); 
         }
 
-        /* Contenedor columna derecha */
         .hero-right-column {
             display: flex;
             flex-direction: column;
@@ -107,27 +192,23 @@
             font-weight: bold;
         }
         
-        /* --- Estilos Comunes para las Cards (Ahora son Enlaces <a>) --- */
+        /* Cards como Enlaces */
         .card-base {
             border-radius: 25px;
-            /* REDUCIDO: Padding a 3px para la etiqueta */
             padding: 3px; 
             min-height: 290px; 
-            display: block; /* Necesario para que el <a> se comporte como bloque */
+            display: block; 
             position: relative;
             text-decoration: none;
-            /* ANIMACIÓN: Transición suave */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Efecto Hover (Levitación) */
         .card-base:hover {
-            transform: translateY(-8px); /* Se eleva */
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* Sombra al elevarse */
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
             cursor: pointer;
         }
 
-        /* Card de descuento (Superior) */
         .discount-card {
             background-image: url('15.png');
             background-size: cover;
@@ -136,7 +217,6 @@
             background-color: #f9f9f9; 
         }
 
-        /* Nueva Card de Spreadsheet (Inferior) */
         .spreadsheet-card {
             background-image: url('spreadsheet.png');
             background-size: cover;
@@ -160,7 +240,6 @@
         .video-banner {
             width: 100%;
             max-width: 1920px;
-            /* AUMENTADO: Margen superior a 50px (antes 35px) */
             margin: 50px auto 0;
             overflow: hidden;
             border-radius: 20px;
@@ -267,9 +346,21 @@
             }
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
+            /* Ajuste para que el menú no rompa en pantallas medianas */
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                padding-bottom: 25px;
+            }
+            
+            .header-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
             .logo {
-                font-size: 1.8em;
+                font-size: 2em;
             }
             
             .hero-text h1 {
@@ -281,6 +372,24 @@
 <body>
     <header class="header">
         <div class="logo">Oopbuy</div>
+        <nav class="header-nav">
+            <a href="#que-es" class="nav-link">¿Qué es Oopbuy?</a>
+            <a href="#faq" class="nav-link">Preguntas frecuentes</a>
+            
+            <div class="lang-dropdown">
+                <button class="lang-btn">
+                    🌐 Idioma
+                </button>
+                <div class="lang-content">
+                    <a href="#">Español</a>
+                    <a href="#">English</a>
+                    <a href="#">Italiano</a>
+                    <a href="#">Deutsch</a>
+                    <a href="#">Português</a>
+                    <a href="#">Polski</a>
+                </div>
+            </div>
+        </nav>
     </header>
     
     <section class="hero-section">
@@ -314,13 +423,13 @@
                class="card-base spreadsheet-card" 
                target="_blank" 
                rel="noopener">
-               </a>
+            </a>
         </div>
     </section>
     
     <section class="seo-content">
         <article>
-            <h2>¿Qué es Oopbuy?</h2>
+            <h2 id="que-es">¿Qué es Oopbuy?</h2>
             <p>
                 Oopbuy es un agente chino líder que te permite comprar productos directamente desde China con total seguridad y comodidad. Especializado en <strong>ropa</strong>, <strong>zapatillas</strong>, <strong>réplicas</strong> y productos de marca, Oopbuy se ha convertido en la opción preferida de miles de compradores en todo el mundo.
             </p>
@@ -400,7 +509,7 @@
                 Los usuarios buscan constantemente información sobre Oopbuy usando diferentes términos. Algunos de los más comunes incluyen "oopbuy ropa" para encontrar las mejores réplicas de ropa de marca, "oopbuy zapatillas" para sneakers de calidad, "oopbuy spreadsheet" para acceder al catálogo completo de productos, "oopbuy productos" para explorar todo el catálogo disponible, "como comprar en oopbuy" para tutoriales paso a paso, "oopbuy opiniones" para leer experiencias de otros usuarios, y "oopbuy descuento" para encontrar códigos promocionales.
             </p>
             
-            <h2>Preguntas Frecuentes sobre Oopbuy</h2>
+            <h2 id="faq">Preguntas Frecuentes sobre Oopbuy</h2>
             
             <h3>¿Es seguro comprar en Oopbuy?</h3>
             <p>
@@ -429,4 +538,3 @@
     </footer>
 </body>
 </html>
-
